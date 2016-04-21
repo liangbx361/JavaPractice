@@ -16,6 +16,7 @@ import java.util.Date;
 public class DatePractice {
 
     public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
+    public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
     public static void main(String[] args) {
         String yyyyMMddTHHmmss = "2015-01-01T00:00:00";
@@ -23,8 +24,18 @@ public class DatePractice {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
             Date date = simpleDateFormat.parse(yyyyMMddTHHmmss);
             System.out.println(date);
+
+            
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        Date date = new Date();
+        System.out.println(getYyyyMmDdHhMmSs(date));
+    }
+
+    public static String getYyyyMmDdHhMmSs(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return simpleDateFormat.format(date);
     }
 }
